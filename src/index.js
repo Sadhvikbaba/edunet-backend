@@ -21,7 +21,7 @@ connectDB()
 const app = express();
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://edunet-frontend-liard.vercel.app",
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization', 'x-csrf-token', 'Access-Control-Allow-Headers', 'Access-Control-Allow-Methods'],
   methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
