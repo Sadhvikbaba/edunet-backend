@@ -45,7 +45,7 @@ export const login = async (req, res) => {
 
     const token = jwt.sign({ userId: user._id , email : email , role : user.role}, process.env.JWT_SECRET || 'your-secret-key', { expiresIn: '1h' });
     
-    res.cookie('token', token, { httpOnly: true });
+    res.cookie('token', token, { httpOnly: true , secure: true, sameSite : 'None'});
     res.json(createResponse(true, 'Login successful', { email: user.email, name: user.name , role : user.role}));
   } catch (error) {
     res.status(500).json(createResponse(false, 'Error during login'));
